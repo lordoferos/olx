@@ -18,6 +18,8 @@ class ElectronicsSpider(CrawlSpider):
         Rule(LinkExtractor(allow=(), restrict_css=('.pageNextPrev',)),
         callback="parse_item",
         follow=True),)
+    
+    # Changing parse_item method
 
     def parse_item(self, response, parse_detail_page):
         item_links = response.css('.gallerywide > .cus_ad_item > .detailsLinkPromoted::attr(href)').extract()
